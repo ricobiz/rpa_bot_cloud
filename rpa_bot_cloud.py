@@ -11,6 +11,8 @@ import requests
 import os
 from flask import Flask, request, jsonify
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+driver = webdriver.Chrome(ChromeDriverManager().install())
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
