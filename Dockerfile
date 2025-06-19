@@ -1,4 +1,3 @@
-
 FROM python:3.11-slim
 
 # Установка системных зависимостей
@@ -17,8 +16,6 @@ RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add
     && apt-get install -y google-chrome-stable \
     && rm -rf /var/lib/apt/lists/*
 
-# Установка ChromeDriver
-# Вместо всего блока RUN CHROME_VERSION...
 # Создание рабочей директории
 WORKDIR /app
 
@@ -30,6 +27,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Копирование кода приложения
 COPY . .
+
+# Установка разрешений для скрипта запуска
+RUN chmod +x start.sh
 
 # Установка переменных окружения
 ENV DISPLAY=:99

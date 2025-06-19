@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # Скрипт запуска для Railway
 
@@ -25,12 +24,8 @@ sleep 3
 echo "🌐 Проверка Google Chrome..."
 google-chrome --version
 
-# Проверка ChromeDriver
-echo "🚗 Проверка ChromeDriver..."
-chromedriver --version
-
 echo "✅ Все компоненты готовы"
 echo "🤖 Запуск RPA Bot..."
 
-# Запуск приложения
-python rpa_bot_cloud.py
+# Запуск приложения с Gunicorn для лучшей производительности
+gunicorn --bind 0.0.0.0:$PORT --workers 1 --timeout 300 rpa_bot_cloud:app
