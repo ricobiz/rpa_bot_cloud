@@ -53,4 +53,4 @@ ENV PYTHONUNBUFFERED=1
 EXPOSE 5000
 
 # Команда запуска
-CMD ["./start.sh"]
+CMD ["python3", "rpa_bot_cloud.py"]
